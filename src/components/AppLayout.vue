@@ -16,10 +16,10 @@
 </style>
 
 <style lang="stylus" scoped>
-.header {
-  .img {
-    width: 64px;
-    height: 64px;
-  }
-}
+// .header {
+//   .img {
+//     width: 64px;
+//     height: 64px;
+//   }
+// }
 </style>
