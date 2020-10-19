@@ -3,7 +3,7 @@
     <header class="header">
       <div>
         <img class="img" src="../style/assets/logo.svg" alt="logo" />
-        <div>Centrum wsparcia firmy Gmur Corporation</div>
+        <div>Gmur Corporation</div>
       </div>
     </header>
 
