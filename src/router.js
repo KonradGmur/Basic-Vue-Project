@@ -9,3 +9,9 @@ const routes = [
   { path: "/", name: "home", component: Home },
   { path: "/faq", name: "faq", component: FAQ },
 ];
+
+const router = new VueRouter({
+  routes,
+});
+
+export default router;
