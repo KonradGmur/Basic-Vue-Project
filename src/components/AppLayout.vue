@@ -6,7 +6,7 @@
         <div>Gmur Corporation</div>
       </div>
     </header>
-
+    <NavMenu />
     <router-view />
   </div>
 </template>
@@ -23,3 +23,12 @@
   }
 }
 </style>
+
+<script>
+import NavMenu from "./NavMenu";
+export default {
+  components: {
+    NavMenu,
+  },
+};
+</script>
