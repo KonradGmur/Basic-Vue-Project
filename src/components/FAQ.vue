@@ -19,5 +19,21 @@ export default {
       error: null,
     };
   },
+  created() {
+    fetch("http://localhost:3000/questions")
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          return Promise.reject("error");
+        }
+      })
+      .then((result) => {
+        this.questions = result;
+      })
+      .catch((e) => {
+        this.error = e;
+      });
+  },
 };
 </script>
