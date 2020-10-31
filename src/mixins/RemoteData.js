@@ -20,5 +20,11 @@ export default function(resources) {
         }
       },
     },
+    created() {
+      for (const key in resources) {
+        let url = resources[key];
+        this.fetchResource(key, url);
+      }
+    },
   };
 }
