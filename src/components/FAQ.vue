@@ -15,7 +15,13 @@
 </template>
 
 <script>
+import RemoteData from "../mixins/RemoteData";
 export default {
+  mixins: [
+    RemoteData({
+      questionList: "questions",
+    }),
+  ],
   data() {
     return {
       questions: [],
