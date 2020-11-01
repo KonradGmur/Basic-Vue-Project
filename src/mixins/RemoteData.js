@@ -10,8 +10,11 @@ export default function(resources) {
         remoteDataLoading: 0,
       };
 
+      initData.remoteErrors = {};
+
       for (const key in resources) {
         initData[key] = null;
+        initData.remoteErrors[key] = null;
       }
 
       return initData;
@@ -19,10 +22,12 @@ export default function(resources) {
     methods: {
       async fetchResource(key, url) {
         this.$data.remoteDataLoading++;
+        this.$data.remoteErrors[key] = null;
         try {
           this.$data[key] = await this.$fetch(url);
         } catch (e) {
           console.error(e);
+          this.$data.remoteErrors[key] = e;
         }
         this.$data.remoteDataLoading--;
       },
