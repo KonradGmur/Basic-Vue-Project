@@ -4,6 +4,11 @@ export default function(resources) {
       remoteDataBusy() {
         return this.$data.remoteDataLoading;
       },
+      hasRemoteErrors() {
+        return Object.keys(this.$data.remoteErrors).some(
+          (key) => this.$data.remoteErrors[key]
+        );
+      },
     },
     data() {
       let initData = {
