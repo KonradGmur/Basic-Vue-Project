@@ -3,7 +3,7 @@
     <h1>Najczęściej zadawane pytania</h1>
     <div class="error" v-if="error">Problem z wczytaniem pytań</div>
 
-    <Loading v-if="loading" />
+    <Loading v-if="remoteDataBusy" />
 
     <section class="list">
       <article v-for="question of questionList">
