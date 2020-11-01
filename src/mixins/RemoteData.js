@@ -1,5 +1,10 @@
 export default function(resources) {
   return {
+    computed: {
+      remoteDataBusy() {
+        return this.$data.remoteDataLoading;
+      },
+    },
     data() {
       let initData = {
         remoteDataLoading: 0,
@@ -13,11 +18,13 @@ export default function(resources) {
     },
     methods: {
       async fetchResource(key, url) {
+        this.$data.remoteDataLoading++;
         try {
           this.$data[key] = await this.$fetch(url);
         } catch (e) {
           console.error(e);
         }
+        this.$data.remoteDataLoading--;
       },
     },
     created() {
