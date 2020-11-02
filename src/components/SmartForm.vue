@@ -16,3 +16,42 @@
     </transition>
   </form>
 </template>
+
+<script>
+export default {
+  methods: {
+    async submit() {
+      if (this.valid && !this.busy) {
+        this.error = null;
+        this.busy = true;
+        try {
+          await this.operation();
+        } catch (e) {
+          this.error = e.message;
+        }
+        this.busy - false;
+      }
+    },
+  },
+  data() {
+    return {
+      error: null,
+      busy: false,
+    };
+  },
+  props: {
+    title: {
+      type: String,
+      required: true,
+    },
+    operation: {
+      type: Function,
+      required: true,
+    },
+    valid: {
+      type: Boolean,
+      required: true,
+    },
+  },
+};
+</script>
