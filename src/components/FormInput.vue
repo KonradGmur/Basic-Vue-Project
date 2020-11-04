@@ -1,11 +1,12 @@
 <template>
   <div class="row">
     <input
+      @input="update"
       class="input"
       :class="inputClass"
       :name="name"
       :type="type"
-      :value.prop="value"
+      :value="text"
       :placeholder="placeholder"
     />
   </div>
@@ -13,6 +14,15 @@
 
 <script>
 export default {
+  model: {
+    prop: "text",
+    event: "update",
+  },
+  methods: {
+    update(event) {
+      this.$emit("update", event.currentTarget.value);
+    },
+  },
   computed: {
     inputClass() {
       return {
@@ -28,7 +38,7 @@ export default {
       type: String,
       default: "text",
     },
-    value: {
+    text: {
       required: true,
     },
     placeholder: {
