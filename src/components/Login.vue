@@ -23,6 +23,19 @@ export default {
           return "Zaloz nowe konto";
       }
     },
+    retypePasswordError() {
+      return this.password2 && this.password !== this.password2;
+    },
+    signupValid() {
+      return this.password2 && this.email && !this.retypePasswordError;
+    },
+    valud() {
+      return (
+        this.username &&
+        this.password &&
+        this.mode !== ("signup" || this.signupValid)
+      );
+    },
   },
   data() {
     return {
