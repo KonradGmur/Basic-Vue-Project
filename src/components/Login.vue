@@ -14,9 +14,23 @@
 
 <script>
 export default {
+  computet: {
+    title() {
+      switch (this.mode) {
+        case "login":
+          return "Login";
+        case "signup":
+          return "Zaloz nowe konto";
+      }
+    },
+  },
   data() {
     return {
+      mode: "login",
       username: "",
+      password: "",
+      password2: "",
+      email: "",
     };
   },
 };
