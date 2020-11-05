@@ -1,14 +1,25 @@
 <template>
   <main class="login">
     <h1>Zaloguj się aby kontynuować</h1>
-    <form>
-      <FormInput
-        name="username"
-        :value="username"
-        v-model="username"
-        placeholder="Nazwa uzytkownika"
-      />
-    </form>
+    <SmartForm
+      class="form"
+      :title="title"
+      :operation="operation"
+      :valid="valid"
+    />
+    <FormInput
+      name="username"
+      v-model="username"
+      placeholder="Nazwa uzytkownika"
+    />
+    <FormInput
+      name="password"
+      type="password"
+      v-model="password"
+      placeholder="Hasło"
+    />
+    <template v-if="mode === 'singup'">
+      <FormInput name="verify-password" type="password" v-model="password2" placeholder="Powtórz hasło" :invaild="retypePasswordError"/>
   </main>
 </template>
 
