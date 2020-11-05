@@ -19,7 +19,20 @@
       placeholder="Hasło"
     />
     <template v-if="mode === 'singup'">
-      <FormInput name="verify-password" type="password" v-model="password2" placeholder="Powtórz hasło" :invaild="retypePasswordError"/>
+      <FormInput
+        name="verify-password"
+        type="password"
+        v-model="password2"
+        placeholder="Powtórz hasło"
+        :invaild="retypePasswordError"
+      />
+      <FormInput
+        name="email"
+        type="email"
+        v-model="email"
+        placeholder="Adres e-mail"
+      />
+    </template>
   </main>
 </template>
 
