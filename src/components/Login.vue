@@ -14,6 +14,13 @@
 
 <script>
 export default {
+  methods: {
+    async operation() {
+      await this[this.mode]();
+    },
+    async login() {},
+    async singup() {},
+  },
   computet: {
     title() {
       switch (this.mode) {
