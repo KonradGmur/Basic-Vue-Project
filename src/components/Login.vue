@@ -33,6 +33,14 @@
         placeholder="Adres e-mail"
       />
     </template>
+    <template slot="actions">
+      <template v-if="mode === 'login'">
+        <button type="button" class="secondary" @click="mode = 'singup'">
+          Utwórz nowe konto
+        </button>
+        <button type="submit" :disabled="!valid">Zaloguj się</button>
+      </template>
+    </template>
   </main>
 </template>
 
