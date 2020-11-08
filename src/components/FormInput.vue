@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     update(event) {
-      // this.$emit("update", event.currentTarget.value);
+      this.$emit("update", event.currentTarget.value);
     },
   },
   computed: {
