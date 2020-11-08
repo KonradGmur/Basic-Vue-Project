@@ -40,6 +40,12 @@
         </button>
         <button type="submit" :disabled="!valid">Zaloguj się</button>
       </template>
+      <template v-else-if="mode === 'signup'">
+        <button type="button" class="secondary" @click="mode = 'login'">
+          Powrót do logowania
+        </button>
+        <button type="submit" :disabled="!valid">Utwórz nowe konto</button>
+      </template>
     </template>
   </main>
 </template>
