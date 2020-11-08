@@ -3,7 +3,7 @@
     <header class="header">
       <div>
         <img class="img" src="../style/assets/logo.svg" alt="logo" />
-        <div>Gmur Corporation</div>
+        <!-- <div>Gmur Corporation</div> -->
       </div>
     </header>
     <NavMenu />
