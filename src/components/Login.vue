@@ -6,47 +6,48 @@
       :title="title"
       :operation="operation"
       :valid="valid"
-    />
-    <FormInput
-      name="username"
-      v-model="username"
-      placeholder="Nazwa uzytkownika"
-    />
-    <FormInput
-      name="password"
-      type="password"
-      v-model="password"
-      placeholder="Hasło"
-    />
-    <template v-if="mode === 'singup'">
+    >
       <FormInput
-        name="verify-password"
+        name="username"
+        v-model="username"
+        placeholder="Nazwa uzytkownika"
+      />
+      <FormInput
+        name="password"
         type="password"
-        v-model="password2"
-        placeholder="Powtórz hasło"
-        :invaild="retypePasswordError"
+        v-model="password"
+        placeholder="Hasło"
       />
-      <FormInput
-        name="email"
-        type="email"
-        v-model="email"
-        placeholder="Adres e-mail"
-      />
-    </template>
-    <template slot="actions">
-      <template v-if="mode === 'login'">
-        <button type="button" class="secondary" @click="mode = 'singup'">
-          Utwórz nowe konto
-        </button>
-        <button type="submit" :disabled="!valid">Zaloguj się</button>
+      <template v-if="mode === 'singup'">
+        <FormInput
+          name="verify-password"
+          type="password"
+          v-model="password2"
+          placeholder="Powtórz hasło"
+          :invaild="retypePasswordError"
+        />
+        <FormInput
+          name="email"
+          type="email"
+          v-model="email"
+          placeholder="Adres e-mail"
+        />
       </template>
-      <template v-else-if="mode === 'signup'">
-        <button type="button" class="secondary" @click="mode = 'login'">
-          Powrót do logowania
-        </button>
-        <button type="submit" :disabled="!valid">Utwórz nowe konto</button>
+      <template slot="actions">
+        <template v-if="mode === 'login'">
+          <button type="button" class="secondary" @click="mode = 'singup'">
+            Utwórz nowe konto
+          </button>
+          <button type="submit" :disabled="!valid">Zaloguj się</button>
+        </template>
+        <template v-else-if="mode === 'signup'">
+          <button type="button" class="secondary" @click="mode = 'login'">
+            Powrót do logowania
+          </button>
+          <button type="submit" :disabled="!valid">Utwórz nowe konto</button>
+        </template>
       </template>
-    </template>
+    </SmartForm>
   </main>
 </template>
 
