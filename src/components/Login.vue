@@ -58,7 +58,16 @@ export default {
       await this[this.mode]();
     },
     async login() {},
-    async singup() {},
+    async singup() {
+      await this.$fetch("signup", {
+        method: "POST",
+        body: JSON.stringify({
+          username: this.username,
+          password: this.password,
+          email: this.email,
+        }),
+      });
+    },
   },
   computet: {
     title() {
