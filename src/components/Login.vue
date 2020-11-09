@@ -57,7 +57,16 @@ export default {
     async operation() {
       await this[this.mode]();
     },
-    async login() {},
+    async login() {
+      this.$state.user = await this.$fetch("login", {
+        method: "POST",
+        body: JSON.stringify({
+          username: this.username,
+          password: this.password,
+        }),
+      });
+      this.$router.push({ name: "home" });
+    },
     async singup() {
       await this.$fetch("signup", {
         method: "POST",
@@ -67,6 +76,7 @@ export default {
           email: this.email,
         }),
       });
+      this.mode = "login";
     },
   },
   computet: {
