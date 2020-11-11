@@ -30,7 +30,7 @@ router.beforeEach((to, from, next) => {
     next({
       name: "login",
       params: {
-        wantedRoute: to.fllPath,
+        wantedRoute: to.fullPath,
       },
     });
     return;
