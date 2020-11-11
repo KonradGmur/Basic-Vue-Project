@@ -1,7 +1,8 @@
 <template>
     <nav class="menu">
         <router-link :to="{name:'home'}" exact>Strona Główna</router-link>,
-        <router-link :to="{name:'faq'} ">FAQ</router-link>,
+        <router-link :to="{name:'faq'}">FAQ</router-link>,
+        <router-link :to="{name:'tickets'}">Zgłoszenia klientów</router-link>,
         <div class="spacer"></div>
 
         <template v-if="$state.user">
