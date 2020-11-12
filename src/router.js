@@ -11,7 +11,7 @@ Vue.use(VueRouter);
 const routes = [
   { path: "/", name: "home", component: Home },
   { path: "/faq", name: "faq", component: FAQ },
-  { path: "/login", name: "login", component: Login },
+  { path: "/login", name: "login", component: Login, meta: { quest: true } },
   {
     path: "/tickets",
     name: "tickets",
@@ -34,6 +34,9 @@ router.beforeEach((to, from, next) => {
       },
     });
     return;
+  }
+  if (to.meta.quest && state.user) {
+    next({ name: "home" });
   }
   next();
 });
