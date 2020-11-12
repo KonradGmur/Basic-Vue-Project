@@ -4,6 +4,11 @@ import router from "./router";
 import "./global-components";
 import VueFetch, { $fetch } from "./plugins/fetch";
 import state from "./state";
+import * as filters from "./filters";
+
+for (const key in filters) {
+  Vue.filter(key, filters[key]);
+}
 
 Vue.use(VueFetch, {
   baseUrl: "http://localhost:3000",
