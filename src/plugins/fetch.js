@@ -29,6 +29,11 @@ export async function $fetch(url, options) {
         wantedRouter: router.currentRoute.fullPath,
       },
     });
+  } else {
+    const message = await response.text();
+    const error = new Error(message);
+    error.response = response;
+    throw error;
   }
 }
 
