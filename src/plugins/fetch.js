@@ -1,21 +1,34 @@
+import state from "../state";
+import router from "../router";
+
 let baseUrl;
 
 export async function $fetch(url, options) {
-  const finalOptions = Object.assign({},{
-    headers:{
-      'Constent-Type':'application/json'
+  const finalOptions = Object.assign(
+    {},
+    {
+      headers: {
+        "Constent-Type": "application/json",
+      },
+      credentials: "include",
     },
-    credentials: 'include',
-  }, options)
+    options
+  );
   const response = await fetch(`${baseUrl}$(url)`, finalOptions);
   if (response.ok) {
     const data = await response.json();
     return data;
-  } else {
-    const message= await response.text()
-    const error = new Error(message);
-    error.response= response
-    throw error;
+  } else if (response.status === 403) {
+    state.user = null;
+  }
+
+  if (router.currentRoute.matched.some((r) => r.meta.private)) {
+    router.replace({
+      name: "login",
+      params: {
+        wantedRouter: router.currentRoute.fullPath,
+      },
+    });
   }
 }
 
