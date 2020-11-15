@@ -26,7 +26,15 @@
 </template>
 
 <script>
+import RemoteData from "../mixins/RemoteData";
 export default {
+  mixins: [
+    RemoteData({
+      ticket(){
+        return 'ticket/${this.id}'
+      }
+    }),
+  ],
   props: {
     id: {
       type: String,
