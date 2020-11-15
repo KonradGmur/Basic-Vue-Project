@@ -1,6 +1,7 @@
 <template>
   <div class="row">
     <input
+      :is="element"
       @input="update"
       class="input"
       :class="inputClass"
@@ -28,6 +29,9 @@ export default {
       return {
         invalid: this.invalid,
       };
+    },
+    element() {
+      return this.type === "textarea" ? this.type : "input";
     },
   },
   props: {
