@@ -5,6 +5,8 @@ import FAQ from "./components/FAQ.vue";
 import Login from "./components/Loading.vue";
 import TicketsLayout from "./components/TicketsLayout.vue";
 import state from "./state";
+import Tickets from "./components/Ticket.vue";
+import NewTicket from "./components/NewTicket.vue";
 
 Vue.use(VueRouter);
 
@@ -17,6 +19,10 @@ const routes = [
     name: "tickets",
     component: TicketsLayout,
     meta: { private: true },
+    children: [
+      { path: "", name: "tickets", component: Tickets },
+      { path: "new", name: "ticket", component: NewTicket },
+    ],
   },
 ];
 
