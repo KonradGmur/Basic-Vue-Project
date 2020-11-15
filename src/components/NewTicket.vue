@@ -9,6 +9,14 @@
         maxlenght="100"
         required
       />
+      <FormInput
+        type="textarea"
+        name="description"
+        v-model="description"
+        placeholder="Opisz swój problem"
+        required
+        row="4"
+      />
     </SmartForm>
   </div>
 </template>
