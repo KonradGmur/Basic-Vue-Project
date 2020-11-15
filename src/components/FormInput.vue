@@ -9,6 +9,7 @@
       :type="type"
       :value="text"
       :placeholder="placeholder"
+      v-bind="$attrs"
     />
   </div>
 </template>
