@@ -17,6 +17,12 @@
         required
         row="4"
       />
+      <template slot="actions">
+        <router-link tag="button" :to="{ name: 'tickets' }" class="secondary"
+          >Powrót ></router-link
+        >
+        <button type="submit" :disabled="!valid">Wyślij zgłoszenie</button>
+      </template>
     </SmartForm>
   </div>
 </template>
@@ -30,11 +36,20 @@ export default {
   },
   computed: {
     valid() {
-      return !!this.title && !!title.description;
+      return !!this.title && !!this.description;
     },
   },
   methods: {
-    async operation() {},
+    async operation() {
+      const result = await this.$fetch("tickets/new", {
+        method: "POST",
+        body: JSON.stringify({
+          title: this.title,
+          description: this.description,
+        }),
+      });
+      this.title = this.description = "";
+    },
   },
 };
 </script>
