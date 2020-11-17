@@ -17,8 +17,8 @@
 <script>
 export default {
   model: {
-    // prop: "text",
-    // event: "update",
+    prop: "text",
+    event: "update",
   },
   methods: {
     update(event) {
